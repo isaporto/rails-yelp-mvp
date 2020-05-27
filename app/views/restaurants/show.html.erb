@@ -1,0 +1,17 @@
+<div class="container py-5">
+<h1><%= @restaurant.name %></h1>
+<h4><%= @restaurant.category %></h4>
+<p><%= @restaurant.phone_number %></p>
+<p><%= @restaurant.address %></p>
+<h3>Reviews</h3>
+<ul class="list-group">
+  <% @reviews.each do |review| %>
+    <li class="list-group-item">
+      <%= "⭐" * review.rating %>
+      <%= review.content %>
+    </li>
+  <% end %>
+</ul>
+<%= render './reviews/new', restaurant: @restaurant %>
+<%= link_to  "Back to list", restaurants_path, class: "btn btn-primary my-4" %>
+</div>
